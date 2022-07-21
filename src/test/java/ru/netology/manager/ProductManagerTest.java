@@ -36,15 +36,6 @@ public class ProductManagerTest {
     }
 
     @Test
-    //удаление по ид
-    public void shouldRemoveProductById() {
-        repo.removeProductById(1);
-        Product[] expected = {book2, book3, smartphone1, smartphone2};
-        Product[] actual = manager.findAll();
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
     //поиск по автору
     public void shouldFindAuthor() {
         Product[] expected = {book1};
@@ -92,13 +83,6 @@ public class ProductManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
-    //поиск всех добавленных товаров
-    public void shouldFindAllTitleProducts() {
-        Product[] expected = {book1, book2, book3, smartphone1, smartphone2};
-        Product[] actual = manager.searchBy("");
-        Assertions.assertArrayEquals(expected, actual);
-    }
 
     @Test
     //не должен искать книгу по названию, которая не добавлена
