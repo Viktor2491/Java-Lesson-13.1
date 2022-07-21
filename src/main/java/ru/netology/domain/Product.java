@@ -36,7 +36,7 @@ public class Product {
     //      this.price = price;
     //  }
     public boolean matches(String search) {
-        return getTitle().equalsIgnoreCase(search);
+        return getTitle().contains(search);
     }
 
 }

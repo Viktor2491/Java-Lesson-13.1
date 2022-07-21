@@ -1,4 +1,5 @@
 package ru.netology.domain;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,19 +17,19 @@ public class BookTest {
     }
 
     @Test
-    public void shouldNotFindTitle(){
+    public void shouldNotFindTitle() {
         boolean actual = book1.matches("Колобок");
         Assertions.assertFalse(actual);
     }
 
     @Test
-    public void shouldFindAuthor(){
+    public void shouldFindAuthor() {
         boolean actual = book1.matches("Лев Толстой");
         Assertions.assertTrue(actual);
     }
 
     @Test
-    public void shouldNotFindAuthor(){
+    public void shouldNotFindAuthor() {
         boolean actual = book1.matches("Сергей Есенин");
         Assertions.assertFalse(actual);
     }

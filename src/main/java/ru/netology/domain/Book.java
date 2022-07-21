@@ -18,20 +18,20 @@ public class Book extends Product {
     //  }
     @Override
     public boolean matches(String search) {
-        return super.matches(search) || getAuthor().equalsIgnoreCase(search);
+        return super.matches(search) || getAuthor().contains(search);
     }
-   // public boolean matches(String searchBy) {
-      //  if (super.matches(searchBy)) {
-         //   Book book = (Book)
-         //   if (book.getTitle().contains(searchBy)) {
-           //     return true;
-           // }
-           // if (book.getAuthor().contains(searchBy)) {
-         //       return true;
-          //  }
+    // public boolean matches(String searchBy) {
+    //  if (super.matches(searchBy)) {
+    //   Book book = (Book)
+    //   if (book.getTitle().contains(searchBy)) {
+    //     return true;
+    // }
+    // if (book.getAuthor().contains(searchBy)) {
+    //       return true;
+    //  }
 
-            // }return super.matches(searchBy) || getAuthor().contains(searchBy);
-       // }
-       // return false;
-    }
+    // }return super.matches(searchBy) || getAuthor().contains(searchBy);
+    // }
+    // return false;
+}
 
