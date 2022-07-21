@@ -1,4 +1,5 @@
 package ru.netology.domain;
+
 public class Smartphone extends Product {
     private String manufacturer;
 
@@ -11,8 +12,12 @@ public class Smartphone extends Product {
         return manufacturer;
     }
 
-  //  public void setManufacturer(String manufacturer) {
-   //     this.manufacturer = manufacturer;
-  // }
+    //  public void setManufacturer(String manufacturer) {
+    //     this.manufacturer = manufacturer;
+    // }
+    @Override
+    public boolean matches(String search) {
+        return super.matches(search) || getManufacturer().equalsIgnoreCase(search);
+    }
 
 }
