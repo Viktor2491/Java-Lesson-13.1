@@ -13,13 +13,14 @@ public class Book extends Product {
         return author;
     }
 
-    // public void setAuthor(String author) {
-    //       this.author = author;
-    //  }
     @Override
     public boolean matches(String search) {
         return super.matches(search) || getAuthor().contains(search);
     }
 
+    //Сделал не учитываемыми для джавы, т.к. нам необходимо 100% покрытие по бранчам методов с логикой
+    // public void setAuthor(String author) {
+    //       this.author = author;
+    //  }
 }
 

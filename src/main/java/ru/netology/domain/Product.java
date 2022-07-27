@@ -16,13 +16,18 @@ public class Product {
         return id;
     }
 
-    //   public void setId(int id) {
-    //     this.id = id;
-    //   }
-
     public String getTitle() {
         return title;
     }
+
+    public boolean matches(String search) {
+        return getTitle().contains(search);
+    }
+
+    //Сделал не учитываемыми для джавы, т.к. нам необходимо 100% покрытие по бранчам методов с логикой
+    //   public void setId(int id) {
+    //     this.id = id;
+    //   }
 
     //  public void setTitle(String title) {
     //     this.title = title;
@@ -35,10 +40,6 @@ public class Product {
     // public void setPrice(int price) {
     //      this.price = price;
     //  }
-    public boolean matches(String search) {
-        return getTitle().contains(search);
-    }
-
 }
 
 

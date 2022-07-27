@@ -23,7 +23,7 @@ public class ProductManager {
     }
 
     public Product[] searchBy(String text) {
-        Product[] result = new Product[0]; // тут будем хранить подошедшие запросу продукты
+        Product[] result = new Product[0];
         for (Product product : repo.getProducts()) {
             if (product.matches(text)) {
                 Product[] tmp = new Product[result.length + 1];
@@ -36,29 +36,6 @@ public class ProductManager {
         }
         return result;
     }
-
-    // метод определения соответствия товара product запросу search
-    // public boolean matches(Product product, String search) {
-    //   if (product instanceof Book) {
-    //   Book book = (Book) product;
-    //   if (book.getTitle().contains(search)) {
-    //     return true;
-    //   }
-    //   if (book.getAuthor().contains(search)) {
-    //       return true;
-    //  }
-    //   }
-    //  if (product instanceof Smartphone) {
-    //      Smartphone smartphone = (Smartphone) product;
-    //     if (smartphone.getTitle().contains(search)) {
-    //         return true;
-    //     }
-    //  if (smartphone.getManufacturer().contains(search)) {
-    //        return true;
-    //   }
-    //  }
-    //   return false;
-    //  }
 }
 
 
