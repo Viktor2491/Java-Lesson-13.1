@@ -1,4 +1,5 @@
 package ru.netology.manager;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,18 +37,10 @@ public class ProductManagerTest {
     }
 
     @Test
-    //поиск по автору
-    public void shouldFindAuthor() {
-        Product[] expected = {book1};
-        Product[] actual = manager.searchBy("Лев Толстой");
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    //поиск по названию книги
-    public void shouldFindTitleBook() {
-        Product[] expected = {book2};
-        Product[] actual = manager.searchBy("Идиот");
+    //поиск всех добавленных товаров
+    public void shouldFindAllTitleProducts() {
+        Product[] expected = {book1, book2, book3, smartphone1, smartphone2};
+        Product[] actual = manager.searchByTitle("");
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -55,15 +48,7 @@ public class ProductManagerTest {
     //поиск по названию смартфона
     public void shouldFindTitleSmartphone() {
         Product[] expected = {smartphone1};
-        Product[] actual = manager.searchBy("xiaomi mi A2");
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    //поиск по производителю
-    public void shouldFindManufacturer() {
-        Product[] expected = {smartphone1, smartphone2};
-        Product[] actual = manager.searchBy("Xiaomi Corporation");
+        Product[] actual = manager.searchByTitle("xiaomi mi A2");
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -71,56 +56,7 @@ public class ProductManagerTest {
     //не должен искать товар по названию,которой не добавлен
     public void shouldNotFindTitleSmartphone() {
         Product[] expected = {};
-        Product[] actual = manager.searchBy("Samsung");
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    // не должен искать книгу по автору, которая не добавлена
-    public void shouldNotFindAuthor() {
-        Product[] expected = {};
-        Product[] actual = manager.searchBy("Сергей Есенин");
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    //поиск всех добавленных товаров
-    public void shouldFindAllTitleProducts() {
-        Product[] expected = {book1, book2, book3, smartphone1, smartphone2};
-        Product[] actual = manager.searchBy("");
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    //не должен искать книгу по названию, которая не добавлена
-    public void shouldNotFindTitleBook() {
-        Product[] expected = {};
-        Product[] actual = manager.searchBy("Колобок");
-        Assertions.assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
-    //показать весь список товаров
-    public void shouldFindAllProducts() {
-        Product[] expected = {book1, book2, book3, smartphone1, smartphone2};
-        Product[] actual = manager.findAll();
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    //не должен искать книгу с ошибкой  в названии
-    public void shouldNotFindTitleBook2() {
-        Product[] expected = {};
-        Product[] actual = manager.searchBy("Мертвые в душе");
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    //не должен искать товар по производителю,котороый не добавлен
-    public void shouldNotFindManufacturer() {
-        Product[] expected = {};
-        Product[] actual = manager.searchBy("China");
+        Product[] actual = manager.searchByTitle("Samsung");
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -128,7 +64,34 @@ public class ProductManagerTest {
     //не должен искать товар с ошибкой  в названии
     public void shouldNotFindTitleSmartphone2() {
         Product[] expected = {};
-        Product[] actual = manager.searchBy("readmi note 11");
+        Product[] actual = manager.searchByTitle("readmi note 11");
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    //поиск по назваанию книги
+    public void shouldFindTitleBook() {
+        Product[] expected = {book1};
+        Product[] actual = manager.searchByTitle("Война и мир");
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    //не должен искать книгу по названию, которая не добавлена
+    public void shouldNotFindTitleBook() {
+        Product[] expected = {};
+        Product[] actual = manager.searchByTitle("Колобок");
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+
+    @Test
+    //не должен искать книгу с ошибкой  в названии
+    public void shouldNotFindTitleBook2() {
+        Product[] expected = {};
+        Product[] actual = manager.searchByTitle("Мертвые в душе");
         Assertions.assertArrayEquals(expected, actual);
     }
 

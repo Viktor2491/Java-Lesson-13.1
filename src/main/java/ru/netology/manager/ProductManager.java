@@ -17,12 +17,13 @@ public class ProductManager {
     public void add(Product product) {
         repo.save(product);
     }
-    public  Product[] findAll() {
+
+    public Product[] findAll() {
         return repo.getProducts();
     }
 
-    public Product[] searchBy(String text) {
-        Product[] result = new Product[0]; // тут будем хранить подошедшие запросу продукты
+    public Product[] searchByTitle(String text) {
+        Product[] result = new Product[0];
         for (Product product : repo.getProducts()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
@@ -31,35 +32,22 @@ public class ProductManager {
                 }
                 tmp[tmp.length - 1] = product;
                 result = tmp;
-                // "добавляем в конец" массива result продукт product
             }
         }
         return result;
     }
 
-    // метод определения соответствия товара product запросу search
+    //При проверке на соответствие запросу товару мы проверяем вхождение запроса в текст НАЗВАНИЯ товара.
     public boolean matches(Product product, String search) {
-        if (product instanceof Book) {
-            Book book = (Book) product;
-            if (book.getTitle().contains(search)) {
-                return true;
-            }
-            if (book.getAuthor().contains(search)) {
-                return true;
-            }
+        if (product.getTitle().contains(search)) {
+            return true;
+        } else {
+            return false;
         }
-        if (product instanceof Smartphone) {
-            Smartphone smartphone = (Smartphone) product;
-            if (smartphone.getTitle().contains(search)) {
-                return true;
-            }
-            if (smartphone.getManufacturer().contains(search)) {
-                return true;
-            }
-        }
-        return false;
+
     }
 }
+
 
 
 

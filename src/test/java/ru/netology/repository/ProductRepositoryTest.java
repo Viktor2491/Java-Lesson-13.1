@@ -25,6 +25,7 @@ public class ProductRepositoryTest {
         repo.save(smartphone1);
         repo.save(smartphone2);
     }
+
     @Test
     //удаление по ид
     public void shouldRemoveProductById() {
@@ -33,6 +34,7 @@ public class ProductRepositoryTest {
         Product[] actual = repo.getProducts();
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     //показать весь список товаров
     public void shouldFindAllProducts() {
@@ -40,6 +42,7 @@ public class ProductRepositoryTest {
         Product[] actual = repo.getProducts();
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     //добавление нового продукта
     public void shouldAddProduct() {
